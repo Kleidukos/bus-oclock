@@ -1,0 +1,119 @@
+# This YAML file describes your package. Stack will automatically generate a
+# Cabal file when you run `stack build`. See the hpack website for help with
+# this file: <https://github.com/sol/hpack>.
+name: bus-oclock
+version: '0.0.0'
+github: "kleidukos/bus-oclock"
+license: MIT
+author: "Hécate"
+maintainer: "Hécate"
+synopsis: A new package
+description: Please see README.md!
+category: Other
+
+extra-source-files:
+- CHANGELOG.md
+- LICENSE.md
+- README.md
+- package.yaml
+- stack.yaml
+
+default-extensions:
+  - ApplicativeDo
+  - BangPatterns
+  - ConstraintKinds
+  - DataKinds
+  - DefaultSignatures
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - DerivingStrategies
+  - EmptyCase
+  - ExistentialQuantification
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - KindSignatures
+  - LambdaCase
+  - MultiParamTypeClasses
+  - MultiWayIf
+  - NamedFieldPuns
+  - OverloadedStrings
+  - PatternSynonyms
+  - RankNTypes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeFamilyDependencies
+  - TypeOperators
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Widentities
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wmissing-export-lists
+  - -Wno-missing-export-lists
+  - -Wpartial-fields
+  - -Wredundant-constraints
+  - -fhide-source-paths
+  - -rtsopts
+  - -threaded
+  - -with-rtsopts=-N
+
+
+library:
+  dependencies:
+  - aeson
+  - base-noprelude
+  - dhall
+  - fdo-notify 
+  - http-client
+  - http-client-tls
+  - relude
+  - servant
+  - servant-client
+  source-dirs: lib
+
+executables:
+  bus-exe:
+    source-dirs: src
+    main: Main.hs
+    dependencies:
+    - base-noprelude
+    - text
+    - relude
+    - configurator
+    - bus-oclock
+    - optparse-applicative
+    - dhall
+
+benchmarks:
+  bus-benchmarks:
+    source-dirs: benchmark
+    main: Main.hs
+    dependencies:
+    - base-noprelude
+    - criterion
+    - relude
+    - bus
+
+tests:
+  bus-test-suite:
+    source-dirs: test-suite
+    main: Main.hs
+    dependencies:
+    - base-noprelude
+    - relude
+    - bus
+    - tasty
+    - tasty-hspec
