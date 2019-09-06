@@ -17,7 +17,7 @@ display a notification telling you when is your next bus.
 
 ## Usage
 
-`$ Usage: bus-oclock CONFIG_PATH [-n|--notify-send]`
+`$ Usage: bus-exe CONFIG_PATH [-n|--notify-send]`
 
 ## Configuration example
 
@@ -35,4 +35,4 @@ in default
 
 - [ ] Handle aliases from config file
 
-[RATP API](https://api-ratp.pierre-grimaud.fr/v3/documentation) for bus times.
+[RATP API]: https://api-ratp.pierre-grimaud.fr/v3/documentation
